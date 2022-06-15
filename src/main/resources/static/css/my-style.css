@@ -1,0 +1,161 @@
+header {
+	background: no-repeat left/cover url(/images/header-food.jpg);
+	display: flex;
+	height: 500px;
+	min-width: 300px;
+	align-items: top;
+	color: black;
+	height: 500px;
+}
+
+header>h1 {
+	font: calc(1em + 2 * ( 100vw - 120px)/100) 'helvetica';
+	margin: 2%;
+	flex-grow: 4;
+	text-align: left;
+}
+
+h3 {
+	text-align: center;
+	font-size: 2em;
+}
+
+body {
+	font-family: 'helvetica';
+	font-size: 40px;
+}
+
+div {
+	text-align: center;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	font: 1em 'helvetica';
+}
+
+div.flexContainer {
+	display: flex;
+	Height: 700px;
+}
+
+div.flexContainer>div {
+	margin: 20px;
+	flex-grow: 1;
+	background: no-repeat left/cover url(/images/chef.jpg);
+	font-size: 2em;
+}
+
+div.buffetListItem {
+	border-style: solid;
+	border-color: black;
+	border-radius: 10px;
+	border-width: 3px;
+	height: 300px;
+	background-color: #ffd700;
+	margin-bottom: 20px;
+}
+
+a {
+	text-decoration: none;
+	opacity: 1.0;
+	color: black;
+}
+
+a.homeLink1 {
+	color: white;
+}
+
+a.homeLink1:visited {
+	color: white;
+}
+
+a:visited {
+	color: inherit;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+input[type=text], select, input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 20px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: 'helvetica';
+	font-size: 0.7em;
+}
+
+span.checkBoxSpan {
+	display: inline-block;
+}
+
+textarea {
+	width: 100%;
+	height: 200px;
+	resize: none;
+	font-family: 'helvetica';
+	font-size: 0.7em;
+}
+
+div.piattoForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.buffetForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.loginForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.registrationForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.ingredienteForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.cuocoForm {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	left: 37.5%;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+span.errors {
+	color: red;
+	display: block;
+}

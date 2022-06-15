@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='catering app')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<h3>Admin Personal Area</h3>
+	<div>
+		<a th:href="@{/admin/buffetForm}">gestisci buffet</a>
+	</div>
+	<div>
+		<a th:href="@{/admin/cuocoForm}">aggiungi chef</a>
+	</div>
+	<div>
+		<a th:href="@{/admin/piattoForm}">aggiungi piatto</a>
+	</div>
+	<div>
+		<a th:href="@{/admin/ingredienteForm}">aggiungi ingrediente</a>
+	</div>
+</body>
+</html>

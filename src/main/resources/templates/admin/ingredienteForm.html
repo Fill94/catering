@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<head
+	th:replace="fragments/base.html :: headerfiles(title='catering app')">
+</head></head>
+
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<h3>aggiungi ingrediente</h3>
+	<div class="ingredienteForm">
+		<form th:action="@{/ingredienteForm/adminPage}" method="post"
+			th:object=${ingrediente}>
+
+			<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="error:${#fields.globalErrors()}" th:text="${error}">errore
+					globale</p>
+			</div>
+
+			<label>nome ingrediente</label>
+			<input type="text" th:field="*{nome}"> <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+				
+
+
+			<label>origine ingrediente</label>
+			<input type="text" th:field="*{origine}"> <span th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></span>
+				
+			<label>descrizione ingrediente</label>
+			<textarea rows="10" cols="20" name="descriptionTextArea"
+				th:field="*{descrizione}"></textarea>
+			<span th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}"></span>
+
+
+			<button type="submit">submit</button>
+
+		</form>
+	</div>
+
+</body>
+</html>

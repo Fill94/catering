@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='catering app')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<h3>informazioni chef</h3>
+	<div><span>nome chef: </span><span th:text="${chef.nome}">nomeBuffet </span></div>
+	<div><span>cognome chef: </span><span th:text="${chef.cognome}">buffetDescrizione </span></div>
+	<div> <span>nazionalita chef:</span> <span th:text="${chef.nazionalita}">nomeChef</span> </div>
+	<h3>elenco buffet</h3>
+	<div>
+		<ul>
+			<li th:each="buffet:${buffets}">
+				<a th:href="@{'/buffet'+'/'+${buffet.id}}" th:text=${buffet.nome}>nome buffet</a>
+			</li>
+		</ul>
+	</div>
+	
+</body>
+</html>

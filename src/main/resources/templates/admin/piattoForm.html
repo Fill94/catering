@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='catering app')">
+</head>
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<h3>Elenco piatti</h3>
+	<ul>
+			<li th:each="piatto:${piatti}">
+				<div class="piattoListItem">
+					<a th:href="@{'/piatto'+'/'+${piatto.id}}" th:text=${piatto.nome}>nome piatto</a> <a th:href="@{'/removePiatto'+'/'+${piatto.id}}" >(rimuovi</a> <a th:href="@{'/updatePiatto'+'/'+${piatto.id}}">modifica)</a>
+				</div>
+			</li>
+	</ul>
+	
+	<h3>aggiungi un piatto</h3>
+	<div class="piattoForm">
+		<form th:action="@{/piattoForm/adminPage}" method="post"
+			th:object="${piatto}">
+
+			<label>nome del piatto</label>
+			<input type="text" th:field="*{nome}"> <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			<label>descrizione del piatto</label>
+			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span> 
+			<textarea rows="20" cols="80" name="descriptionTextArea"th:field="*{descrizione}"></textarea>
+			<label>ingredienti del piatto</label>
+			<span th:if="${#fields.hasErrors('ingredienti')}"th:errors="*{ingredienti}"></span>	
+			<th:block th:each="ingrediente:${ingredienti}">
+				<div>
+					<input type="checkbox" th:value="${ingrediente.id}"
+						name="ingredientiSelezionati"> <label
+						th:text="${ingrediente.nome}"></label>
+				</div>
+			</th:block>
+			<button type="submit">submit</button>
+
+		</form>
+	</div>
+
+
+</body>
+</html>

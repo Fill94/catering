@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/base.html :: headerfiles(title='catering app')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<h3>aggiungi un buffet</h3>
+	<div class="buffetForm">
+		<form th:action="@{'/updateBuffetForm'+'/'+${buffet.id}+'/adminPage'}" method="post" th:object="${buffet}">
+	
+			<label>nome del buffet</label>
+			<span class="errors" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			<input type="text" th:field="*{nome}">
+			
+			<label>descrizione del buffet</label>
+			<span class="errors" th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			<textarea name="descriptionTextArea" th:field="*{descrizione}"></textarea> 
+	
+			<label>chef del buffet</label>
+			<span class="errors" th:if="${#fields.hasErrors('chef')}" th:errors="*{chef}"></span>
+			<select name="chefSelezionato">
+	    		<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome}+' '+${chef.cognome}"></option>
+	     	</select>
+			
+			<span>piatti del buffet</span>
+			<span class="errors" th:if="${#fields.hasErrors('piatti')}" th:errors="*{piatti}"></span>
+			<th:block th:each="piatto:${piatti}">
+				<span class="checkBoxSpan">
+					<input type="checkbox" th:value="${piatto.id}" name="piattiSelezionati" th:checked="${buffet.contiene(piatto)}">
+					<label th:text="${piatto.nome}"></label>
+				</span>
+			</th:block>
+		
+		<div><button type="submit">submit</button></div>
+		
+		</form>
+	</div>
+	
+</body>
+</html>
