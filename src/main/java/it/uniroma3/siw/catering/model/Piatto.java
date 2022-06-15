@@ -23,7 +23,7 @@ public class Piatto {
 	@NotBlank
 	private String descrizione;
 	@ManyToMany(mappedBy = "piatti")
-	@Cascade(CascadeType.DELETE)
+	
 	private List<Buffet> BuffetsList;
 	@ManyToMany
 	private List<Ingrediente> ingredienti;

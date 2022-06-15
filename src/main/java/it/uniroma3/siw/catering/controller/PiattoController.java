@@ -20,6 +20,7 @@ import it.uniroma3.siw.catering.model.Piatto;
 import it.uniroma3.siw.catering.model.Buffet;
 import it.uniroma3.siw.catering.services.IngredienteService;
 import it.uniroma3.siw.catering.services.PiattoService;
+import it.uniroma3.siw.catering.services.buffetService;
 
 @Controller
 public class PiattoController {
@@ -29,6 +30,8 @@ public class PiattoController {
 	private IngredienteService ingredienteService;
 	@Autowired
 	private PiattoValidator piattoValidator;
+	@Autowired
+	private buffetService buffetService;
 
 	@GetMapping(value ="admin/piattoForm")
 	public String addPiatto(Model model) {
@@ -64,7 +67,7 @@ public class PiattoController {
 		
 		for(Buffet buffet:piatto.getBuffetsList()) {
 			if(buffet.getPiatti().size() == 1)
-				
+				this.buffetService.remove(buffet.getId());
 		}
 		this.piattoService.remove(id);
 		model.addAttribute("piatto", new Piatto());
