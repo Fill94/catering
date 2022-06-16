@@ -61,14 +61,19 @@ public class PiattoController {
 		model.addAttribute("ingredienti", listaINgredienti);
 		return "piatto.html";
 	}
+	
 	@GetMapping(value="/removePiatto/{id}")
 	public String removePiatto(Model model, @PathVariable("id") Long id) {
 		Piatto piatto = this.piattoService.findById(id);
-		
-		for(Buffet buffet:piatto.getBuffetsList()) {
+		List<Buffet> listaBuffet = piatto.getBuffetsList();
+		for(Buffet buffet:listaBuffet) {
 			if(buffet.getPiatti().size() == 1)
 				this.buffetService.remove(buffet.getId());
-		}
+			else {
+				buffet.getPiatti().remove(piatto);
+				this.buffetService.addBuffet(buffet);
+			}
+		}	
 		this.piattoService.remove(id);
 		model.addAttribute("piatto", new Piatto());
 		model.addAttribute("ingredienti",this.ingredienteService.findAll());

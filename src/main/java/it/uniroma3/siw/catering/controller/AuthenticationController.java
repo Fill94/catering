@@ -42,6 +42,8 @@ public class AuthenticationController {
 	
 	@GetMapping(value = "/logout")
 	public String logout(Model model) {
+		SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false);
+
 		return "index.html";
 	}
 	

@@ -13,14 +13,5 @@
 				</div>
 			</li>
 		</ul>
-	
-	<ul>
-		<li th:each="buffet:${buffets}">
-			<div class="buffetListItem">
-				<a th:href="@{'/buffet'+'/'+${buffet.id}}" th:text=${buffet.nome}>nome buffet</a>
-				<p th:text=${buffet.descrizione}></p>
-			</div>
-		</li>
-	</ul>
 </body>
 </html>
